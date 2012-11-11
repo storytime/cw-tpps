@@ -8,7 +8,9 @@ class TouristAgency {
 	String name;
 	String login;
 	String passwdHash;
-			
+	
+	static hasMany = [vacationPackage:VacationPackage]
+	
     static constraints = {
     }
 }

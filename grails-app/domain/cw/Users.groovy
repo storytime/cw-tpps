@@ -8,6 +8,8 @@ class Users {
 	String address;
 	String email;
 	String name;
+	
+	static hasMany = [vacationPackage:VacationPackage]
 		
     static constraints = {
     }

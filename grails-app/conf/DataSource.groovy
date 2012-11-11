@@ -16,7 +16,7 @@ hibernate {
 environments {
 	development {
 		dataSource {
-			dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
+			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
 			//url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
 			//url = "jdbc:h2:devDb;MVCC=TRUE"
 			url = "jdbc:mysql://localhost:3306/cw"

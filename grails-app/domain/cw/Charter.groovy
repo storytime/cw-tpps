@@ -6,6 +6,8 @@ class Charter {
 	String classCharter
 	float price;
 	
+	static hasMany = [vacationPackage:VacationPackage]
+	
     static constraints = {
     }
 }

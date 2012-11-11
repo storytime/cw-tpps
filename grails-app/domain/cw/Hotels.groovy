@@ -5,6 +5,8 @@ class Hotels {
 	float pricePerDay;
 	String rest;
 
+	static belongsTo = [fk_countries:Countries]
+		
 	static constraints = {
 	}
 }

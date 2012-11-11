@@ -78,14 +78,7 @@
 <primary-key-description/>
 </primary-key>
 <unique-key-list/>
-<foreign-key-list>
-<foreign-key alias="" name="FK_tourist_agency_1" on-delete="" on-update="" referenced-key="PK_ADMINS" referenced-table="Admins" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="7796a530:13acafa3977:-7fbe">
-<foreign-key-description/>
-<foreign-key-figure>
-<fk-fig-bendpoint-list/>
-</foreign-key-figure>
-</foreign-key>
-</foreign-key-list>
+<foreign-key-list/>
 <index-list/>
 </table>
 <table alias="" name="vacation_package" remarks="" uid="32a6436b:13a9257d610:-7f9d">
@@ -205,7 +198,7 @@
 </table>
 <table alias="" name="Admins" remarks="" uid="32a6436b:13a9257d610:-7f0d">
 <table-description/>
-<table-figure-bounds height="158" width="213" x="223" y="40"/>
+<table-figure-bounds height="158" width="213" x="108" y="39"/>
 <column-list>
 <column alias="" auto-increment="false" column-size="10" decimal-digits="0" default-value="" mandatory="false" name="secondname" remarks="" uid="7796a530:13acafa3977:-7fea">
 <column-description/>
@@ -341,7 +334,7 @@
 </table>
 <table alias="" name="hot_news" remarks="" uid="32a6436b:13a9257d610:-7f05">
 <table-description/>
-<table-figure-bounds height="187" width="188" x="189" y="762"/>
+<table-figure-bounds height="187" width="188" x="204" y="763"/>
 <column-list>
 <column alias="" auto-increment="false" column-size="10" decimal-digits="0" default-value="" mandatory="false" name="id" remarks="" uid="234bf04b:13acbc13d4c:-7c1b">
 <column-description/>

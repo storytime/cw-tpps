@@ -7,6 +7,9 @@ class Trip {
 	String type;
 	String name;
 	
+	static hasMany = [countries:Countries]
+	static belongsTo = [fk_vacationPackage:VacationPackage]
+	
     static constraints = {
     }
 }
