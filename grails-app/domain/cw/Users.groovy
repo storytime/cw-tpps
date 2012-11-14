@@ -13,6 +13,15 @@ class Users {
 	static hasMany = [vacationPackage:VacationPackage]
 
 	static constraints = {
+		
+		secondName  nullable:false;
+		phone  nullable:false;
+		passwdHash  nullable:false;
+		address  nullable:false;
+		email nullable:false;
+		name  nullable:false;
+		balance  nullable:false;
+		
 		secondName(blank:false,size: 4..25);
 		phone(blank:false,size: 6..12);
 		passwdHash(blank:false,size: 4..255);

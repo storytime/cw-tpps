@@ -11,6 +11,12 @@ class Places  {
 	
 
     static constraints = {
+		
+		price nullable:false;
+		time nullable:false;
+		type  nullable:false;
+		decription  nullable:false;
+		
 		price(blank:false,range: 0..10000);
 		time(blank: false, min:new Date());
 		type (inList:["1","2","3","4","5"]);

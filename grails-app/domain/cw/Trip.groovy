@@ -11,6 +11,13 @@ class Trip {
 	static belongsTo = [fk_vacationPackage:VacationPackage]
 	
     static constraints = {
+		
+		price  nullable:false;
+		rating  nullable:false;
+		decription  nullable:false;
+		type  nullable:false;
+		name  nullable:false;
+		
 		price(blank:false,range: 0..10000);
 		rating(blank:true,range: 0..5);
 		decription(blank:false,size: 0..10000);

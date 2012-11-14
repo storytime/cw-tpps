@@ -12,6 +12,15 @@ class TouristAgency  {
 	static hasMany = [vacationPackage:VacationPackage]
 
 	static constraints = {
+
+		regDate nullable:false;
+		owner nullable:false;
+		decription nullable:false;
+		phone nullable:false;
+		name nullable:false;
+		login nullable:false;
+		passwdHash nullable:false;
+
 		regDate(blank:false);
 		owner(blank:false,size: 4..255);
 		decription(blank:false,size: 0..10000);
