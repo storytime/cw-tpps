@@ -1,6 +1,6 @@
 dataSource {
 	pooled = true
-	driverClassName = "org.h2.Driver"
+	//driverClassName = "org.h2.Driver"
 	//username = "sa"
 	//password = ""
 		driverClassName = "com.mysql.jdbc.Driver"
@@ -25,15 +25,15 @@ environments {
 	test {
 		dataSource {
 			dbCreate = "update"
-			//url = "jdbc:mysql://localhost:3306/cw"
-			url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+			 url = "jdbc:mysql://localhost:3306/cw"
+			//url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
 		}
 	}
 	production {
 		dataSource {
 			dbCreate = "update"
-			//url = "jdbc:mysql://localhost:3306/cw"
-			url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+			url = "jdbc:mysql://localhost:3306/cw"
+			//url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
 			pooled = true
 			properties {
 				maxActive = -1

@@ -8,5 +8,7 @@ class Countries {
 	static belongsTo = [fk_trip:Trip]
 	
     static constraints = {
+		wikiLink(blank:false,url:true);
+		name(blank:false,size: 4..25);
     }
 }
