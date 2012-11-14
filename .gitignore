@@ -1,2 +1,5 @@
 target/
 target-eclipse/
+.classpath
+.settings/org.grails.ide.eclipse.core.prefs
+
