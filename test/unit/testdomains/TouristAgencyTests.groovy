@@ -1,15 +1,17 @@
-package cw
+package testdomains
 
 
 
 import grails.test.mixin.*
 import org.junit.*
 
+import cw.TouristAgency;
+
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Hotels)
-class HotelsTests {
+@TestFor(TouristAgency)
+class TouristAgencyTests {
 
     void testSomething() {
        fail "Implement me"
