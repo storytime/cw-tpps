@@ -10,10 +10,10 @@ class VacationPackage {
 	static hasMany = [trip:Trip]
 
 	static constraints = {
-//		priceFull(blank:false,range: 0..10000);
-//		startDate(blank:false, new Date());
-//		endDate(blank:false,new Date()+1);
-//		people(blank:false, range: 0..10);
+		priceFull(blank:false,range: 0..10000);
+		startDate(blank:false, min: new Date());
+		endDate(blank:false,min: new Date()+1);
+		people(blank:false, range: 0..10);
 	
 	}
 }
