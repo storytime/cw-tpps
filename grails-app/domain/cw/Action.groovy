@@ -17,6 +17,6 @@ class Action  {
 		discount(blank: false, range: 0..99);
 		decription(blank: false, size: 0..10000);
 		endDate(blank:false, min: new Date());
-		startDate (blank:false, min: new Date()+1);
+		startDate (blank:false, min: new Date());
 	}
 }
