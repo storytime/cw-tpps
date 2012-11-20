@@ -1,8 +1,7 @@
 package testdomains
 
 
-
-import grails.test.mixin.*
+import grails.test.mixin.support.*
 import org.junit.*
 
 import cw.Places;

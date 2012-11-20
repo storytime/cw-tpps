@@ -8,8 +8,9 @@ class TouristAgency  {
 	String name;
 	String login;
 	String passwdHash;
+	Collection va;
 
-	static hasMany = [vacationPackage:VacationPackage]
+	static hasMany = [va:VacationPackage]
 
 	static constraints = {
 
@@ -21,7 +22,7 @@ class TouristAgency  {
 		login nullable:false;
 		passwdHash nullable:false;
 
-		regDate(blank:false);
+		regDate(blank:false,min:new Date().setHours(0));
 		owner(blank:false,size: 4..255);
 		decription(blank:false,size: 0..10000);
 		phone(blank:false,size: 4..12);

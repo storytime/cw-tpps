@@ -5,8 +5,9 @@ class Action  {
 	String decription;
 	Date startDate;
 	Date endDate;
+	Collection va;
 
-	static hasMany = [vacationPackage:VacationPackage]
+	static hasMany = [va:VacationPackage]
 	static constraints = {
 
 		discount nullable:false;
@@ -14,9 +15,9 @@ class Action  {
 		endDate nullable:false;
 		startDate  nullable:false;
 
-		discount(blank: false, range: 0..99);
+		discount(blank: false, range: 0.1..99);
 		decription(blank: false, size: 0..10000);
-		endDate(blank:false, min: new Date());
-		startDate (blank:false, min: new Date());
+		endDate(blank:false, min: new Date().setHours(0));
+		startDate (blank:false, min: new Date().setHours(0));
 	}
 }

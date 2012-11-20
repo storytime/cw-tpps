@@ -1,10 +1,6 @@
 package testdomains
 
 
-
-import grails.test.mixin.*
-import org.junit.*
-
 import cw.Action;
 import cw.VacationPackage;
 
@@ -14,37 +10,19 @@ import cw.VacationPackage;
 @TestFor(Action)
 class ActionTests implements IDomainTest {
 	
-	def testObjFail =   new Action(
-		decription: "testtest", 
-		discount: 200,
-		endDate: new Date(),
-		startDate: new Date()+2,
-		hasMany: null,   	 
-	)
+	def testObjFail =   new Action(decription: "testtest", discount: 200,endDate: new Date(),startDate: new Date(),	 )
 
-	def testObjOk =  new Action(
-		decription: "testtest", 
-		discount: 20,
-		endDate: new Date(),
-		startDate: new Date(),
-		hasMany: new VacationPackage(
-				endDate: new Date(),
-				people: 10,
-				priceFull: 10000,
-				startDate: new Date(),
-				hasMany: null,
-			),
-	)
+	def testObjOk =  new Action(decription: "testtest", discount: 20,endDate: new Date(),startDate: new Date(),va: new ArrayList<VacationPackage>(),)
 
 	@Override
 	public void testFalseValid() {
-		mockForConstraintsTests(Action, [testObjFail])
 		assertFalse testObjFail.validate()
 	}
 
 	@Override
 	public void testTrueValid() {
-		mockForConstraintsTests(Action, [testObjOk])
+		def va=new VacationPackage(endDate: new Date(),startDate: new Date(), people: 25, priceFull: 28.5) 
+		testObjOk.va.add(va)
 		assert testObjOk.validate()
 	}
 
@@ -66,11 +44,14 @@ class ActionTests implements IDomainTest {
 
 	@Override
 	public void testBlank() {
-			Action testObj = new Action(email: "testtest@gmail.com", age: 25,  login: "",
-							passwdHash: "", phoneNumber: "", name: "",secondName: "",
-					)
+			def testObj = new Action(
+					decription: "testtest",
+					discount: 0,
+					endDate: new Date(),
+					startDate: new Date(),
+				)
 			//assertFalse testObj.validate()
-			assertEquals 'Name is blank.', 'blank', testObj.errors['name']
+			assertEquals 'Discount is blank.', 'blank', testObj.errors['discount']
 			
 			assertEquals 'login is blank.', 'blank', testObj.errors['login']
 			testObj = new Action()(
@@ -83,7 +64,11 @@ class ActionTests implements IDomainTest {
 					secondName: "testSecondName",
 				)
 			assertTrue testObj.validate()
-				
+	}
+
+	@Override
+	public void testNull() {
+		assertNotNull(testObjOk)
 	}
 
 }

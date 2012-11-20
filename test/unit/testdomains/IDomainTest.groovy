@@ -7,5 +7,6 @@ public interface IDomainTest {
 	def void testFalseValid();
 	def void testTrueValid();
 	def void testBlank();
+	def void testNull();
 	
 }
