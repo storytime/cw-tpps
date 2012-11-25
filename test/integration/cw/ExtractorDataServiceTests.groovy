@@ -14,6 +14,8 @@ class ExtractorDataServiceTests extends GroovyTestCase{
 		vacationPackage.fk_action=Action.get(action.id)
 		System.out.println(vacationPackage.validate());
     	VacationPackage vacationPackage2 =new VacationPackage(people:2,priceFull: 230, endDate: new Date(),startDate: new Date())
+		vacationPackage2.fk_action=Action.get(action.id)
+		System.out.println(vacationPackage2.validate());
 		action.addToVacationPackages(vacationPackage)
 		action.addToVacationPackages(vacationPackage2)
 		def foundAction=Action.get(action.id)
