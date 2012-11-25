@@ -1,11 +1,11 @@
 package cw
 
-class Hotels {
+class Hotel {
 	String name;
 	float pricePerDay;
 	String rest;
 
-	static belongsTo = [fk_countries:Countries]
+static belongsTo = [fk_countries:Country]
 
 	static constraints = {
 

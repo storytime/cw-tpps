@@ -1,6 +1,6 @@
 package cw
 
-class Users {
+class User {
 
 	String secondName;
 	String phone;

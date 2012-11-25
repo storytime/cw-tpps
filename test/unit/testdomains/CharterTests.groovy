@@ -1,28 +1,21 @@
 package testdomains
 
 import grails.test.mixin.support.*
-
-import cw.Charter;
+import cw.Charter
 
 /**
- * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
+ * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
  */
 @TestFor(Charter)
-class CharterTests implements IDomainTest{
+class CharterTests implements IDomainTest {
 
-	def testObjFail =   new Charter(price: 0,startDate: new Date(),typeCharter:"AirTest", classCharter:"100", )
 
-	def testObjOk = new Charter(price: 10,startDate: new Date(),typeCharter:"Air", classCharter:"3", )
+	def testObjFail = new Charter(classCharter: "1",startDate: new Date(),
+	price: 100,typeCharter: "underGround")
 
-	@Override
-	public void testFalseValid() {
-		assertFalse testObjFail.validate()
-	}
+	def testObjOk = new Charter(classCharter: "1",startDate: new Date(),
+	price: 100,typeCharter: "Air")
 
-	@Override
-	public void testTrueValid() {
-		assertTrue testObjOk.validate()
-	}
 
 	@Override
 	public void testTrueInsAndSel() {
@@ -39,17 +32,27 @@ class CharterTests implements IDomainTest{
 	}
 
 	@Override
+	public void testFalseValid() {
+		assertFalse testObjFail.validate()
+	}
+
+	@Override
+	public void testTrueValid() {
+		assertTrue testObjOk.validate()
+	}
+
+	@Override
 	public void testBlank() {
-		def testObj = new Charter(price: 0,typeCharter:"Air",)
-		assertEquals 'Date is blank.', 'blank', testObj.errors['startDate']
+		def testObj = new Charter(classCharter: "", typeCharter: "")
+		assertFalse testObj.validate()
 
-		testObj = new Charter(price: 0,startDate: new Date(),typeCharter:"Air",)
-
+		testObj =new Charter(classCharter: "1",startDate: new Date(),
+				price: 100,typeCharter: "Air")
 		assertTrue testObj.validate()
 	}
 
 	@Override
 	public void testNull() {
-		assertNotNull(testObjOk)
+		assertNotNull(testObjOk.save())
 	}
 }

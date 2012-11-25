@@ -6,12 +6,10 @@ class HotNews {
 	Collection va;
 
 	static hasMany = [va:VacationPackage]
-	static belongsTo = [fk_places:Places]
+	static belongsTo = [fk_places:Place]
 
 	static constraints = {
-
 		decription nullable:false;
-
 		decription(blank: false, size: 0..10000);
 	}
 }

@@ -1,6 +1,6 @@
 package cw
 
-class Places  {
+class Place  {
 	float price;
 	String time;
 	String type;
@@ -8,7 +8,7 @@ class Places  {
 	Collection hotNews;
 	
 	static hasMany = [hotNews:HotNews]
-	static belongsTo = [fk_countris:Countries]
+	static belongsTo = [fk_countris:Country]
 	
 
     static constraints = {

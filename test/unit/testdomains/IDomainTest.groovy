@@ -8,5 +8,4 @@ public interface IDomainTest {
 	def void testTrueValid();
 	def void testBlank();
 	def void testNull();
-	
 }

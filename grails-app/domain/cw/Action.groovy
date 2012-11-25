@@ -7,17 +7,17 @@ class Action  {
 	Date endDate;
 	Collection va;
 
-	static hasMany = [vacationPackages:VacationPackage]
+	static hasMany = [va:VacationPackage]
 	static constraints = {
 
-//		discount nullable:false;
-//		decription  nullable:false;
-///	    endDate nullable:false;
-//		startDate  nullable:false;
+		discount nullable:false;
+		decription  nullable:false;
+		endDate nullable:false;
+		startDate  nullable:false;
 
 		discount(blank: false, range: 0.1..99);
 		decription(blank: false, size: 0..10000);
-		endDate(blank:false)//, min: new Date().setHours(0));
-		startDate (blank:false)//, min: new Date().setHours(0));
+		endDate(blank:false, min: new Date().setHours(0));
+		startDate (blank:false, min: new Date().setHours(0));
 	}
 }

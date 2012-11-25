@@ -1,6 +1,6 @@
 package cw
 
-class Admins {
+class Admin {
 	String name;
 	String secondName;
 	String phone;
