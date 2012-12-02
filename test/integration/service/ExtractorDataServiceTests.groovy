@@ -36,8 +36,6 @@ class ExtractorDataServiceTests extends GroovyTestCase{
 		assertNotNull(foundAction)
 		def foundTouristAgency=TouristAgency.findByName('OPAZA', [fetch:[vacationPackages:'eager']])
 		assertNotNull foundTouristAgency
-		System.out.println(foundTouristAgency.toString());
-		System.out.println(foundTouristAgency.getVacationPackages());
 		Collection lists = extractorDataService.getVacationPacckagefromAction(foundAction)
 		assertTrue !lists.isEmpty()
 		System.out.println("list:"+lists.toString());

@@ -29,4 +29,7 @@ class TouristAgency  {
 		login(blank:false,size: 4..25);
 		passwdHash(blank:false,size: 4..25);
 	}
+	String toString() {
+		"TouristAgency for ${name}"
+	}
 }
