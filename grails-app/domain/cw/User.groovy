@@ -9,9 +9,8 @@ class User {
 	String email;
 	String name;
 	float balance;
-	Collection va;
-
-	static hasMany = [va:VacationPackage]
+	String avatar
+	static hasMany = [vacationPackages:VacationPackage]
 
 	static constraints = {
 
@@ -22,7 +21,7 @@ class User {
 		email nullable:false;
 		name  nullable:false;
 		balance  nullable:false;
-
+		avatar nullable: true
 		secondName(blank:false,size: 4..25);
 		phone(blank:false,size: 6..12);
 		passwdHash(blank:false,size: 4..255);
@@ -30,5 +29,6 @@ class User {
 		email(blank:false,email:true);
 		name(blank:false,size: 4..25);
 		balance (blank: false, range: 0..100000);
+		avatar(blank:true)
 	}
 }

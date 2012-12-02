@@ -5,9 +5,8 @@ class Action  {
 	String decription;
 	Date startDate;
 	Date endDate;
-	Collection va;
-
-	static hasMany = [va:VacationPackage]
+	
+	static hasMany = [vacationPackages:VacationPackage]
 	static constraints = {
 
 		discount nullable:false;

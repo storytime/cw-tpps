@@ -3,6 +3,7 @@ package testdomains
 import org.bouncycastle.x509.X509Util.Implementation;
 
 import grails.test.mixin.support.*
+import cw.Action
 import cw.User	
 
 /**

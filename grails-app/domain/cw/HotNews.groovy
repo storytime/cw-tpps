@@ -3,9 +3,8 @@ package cw
 class HotNews {
 
 	String decription;
-	Collection va;
 
-	static hasMany = [va:VacationPackage]
+	static hasMany = [vacationPackages:VacationPackage]
 	static belongsTo = [fk_places:Place]
 
 	static constraints = {

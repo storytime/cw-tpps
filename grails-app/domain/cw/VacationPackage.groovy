@@ -5,9 +5,8 @@ class VacationPackage {
 	Date startDate;
 	Date endDate;
 	short people;
-	Collection trip;
-
-	static belongsTo = [fk_action : Action] //[fk_hotNews : HotNews, fk_charter : Charter, fk_users : Users, fk_action : Action, fk_touristAgency:TouristAgency]
+	
+	static belongsTo = [fk_action : Action, fk_charter: Charter, fk_touristAgency:TouristAgency] //[fk_hotNews : HotNews, fk_charter : Charter, fk_users : Users, fk_action : Action, fk_touristAgency:TouristAgency]
 	static hasMany = [trip:Trip]
 
 	static constraints = {
