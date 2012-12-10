@@ -26,9 +26,9 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form action="save" >
+			<g:form action="save" method="post" enctype="multipart/form-data">
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="form" bean="${placeInstance}"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

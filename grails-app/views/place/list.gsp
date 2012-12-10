@@ -50,7 +50,7 @@
 					
 						<td>${fieldValue(bean: placeInstance, field: "decription")}</td>
 					
-						<td>${fieldValue(bean: placeInstance, field: "image")}</td>
+						<td><img src="${resource(dir:'placeImages', file: placeInstance.image)}" /></td>
 					
 						<td>${fieldValue(bean: placeInstance, field: "fk_countris")}</td>
 					

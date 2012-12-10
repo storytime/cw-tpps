@@ -21,13 +21,23 @@ class PlaceController {
 
     def save() {
         def placeInstance = new Place(params)
-        if (!placeInstance.save(flush: true)) {
-            render(view: "create", model: [placeInstance: placeInstance])
-            return
-        }
+		placeInstance.image=request.getFile('image').originalFilename
+		if (placeInstance.save(flush: true)) {
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'place.label', default: 'Place'), placeInstance.id])
-        redirect(action: "show", id: placeInstance.id)
+            // Save Avatar if uploaded
+            def placeImage = request.getFile('image')
+			
+            if (!placeImage.isEmpty()) {
+                fileUploadService.uploadFile(avatarImage, "${userInstance.image}", "placeImages")
+            }
+
+            
+            flash.message = message(code: 'default.created.message', args: [message(code: 'place.label', default: 'Place'), placeInstance.id])
+            redirect(action: "show", id: placeInstance.id)
+        }
+        else {
+        render(view: "create", model: [placeInstance: placeInstance])
+        }
     }
 
     def show(Long id) {
@@ -72,13 +82,19 @@ class PlaceController {
 
         placeInstance.properties = params
 
-        if (!placeInstance.save(flush: true)) {
-            render(view: "edit", model: [placeInstance: placeInstance])
-            return
-        }
-
+        if (!placeInstance.hasErrors() && placeInstance.save(flush: true)) {
+            
+			def placeImage = request.getFile('image')
+			if (!placeImage.isEmpty()) {
+				placeInstance.image = fileUploadService.uploadFile(placeImage, "${placeInstance.image}", "placeImages")
+			}
         flash.message = message(code: 'default.updated.message', args: [message(code: 'place.label', default: 'Place'), placeInstance.id])
         redirect(action: "show", id: placeInstance.id)
+        }
+		else{
+		render(view: "edit", model: [placeInstance: placeInstance])
+		return
+	}
     }
 
     def delete(Long id) {

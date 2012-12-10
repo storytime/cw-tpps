@@ -36,10 +36,9 @@
 
 <div class="fieldcontain ${hasErrors(bean: placeInstance, field: 'image', 'error')} ">
 	<label for="image">
-		<g:message code="place.image.label" default="Image" />
-		
+		<g:message code="place.image.label" default="Image" />	
 	</label>
-	<g:textField name="image" value="${placeInstance?.image}"/>
+	<input type="file" name="image" id = "image"/> ${placeInstance.image}
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: placeInstance, field: 'fk_countris', 'error')} required">
