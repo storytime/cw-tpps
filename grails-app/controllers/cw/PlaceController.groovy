@@ -3,7 +3,8 @@ package cw
 import org.springframework.dao.DataIntegrityViolationException
 
 class PlaceController {
-
+	
+	FileUploadService fileUploadService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -28,7 +29,7 @@ class PlaceController {
             def placeImage = request.getFile('image')
 			
             if (!placeImage.isEmpty()) {
-                fileUploadService.uploadFile(avatarImage, "${userInstance.image}", "placeImages")
+                fileUploadService.uploadFile(placeImage, "${placeInstance.image}", "placeImages")
             }
 
             
