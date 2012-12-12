@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Tourist portal</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -81,7 +81,8 @@
 		</style>
 	</head>
 	<body>
-		<div id="page-body" role="main">
+	       <div id="page-body" role="main">
+
 			<h1>Welcome to TouristPortal</h1>
 			<p>In this site you can buy vacation package</p>
 			<div id="controller-list" role="navigation">
