@@ -4,3 +4,5 @@ target-eclipse/
 .settings/org.grails.ide.eclipse.core.prefs
 /grails-app/conf
 devDb.h2.db
+devDb.lock.db
+web-app/placeImages/

@@ -400,7 +400,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 
 /* TABLES */
 
-table {
+/*table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
 	width: 100%;
@@ -437,7 +437,7 @@ th {
 	line-height: 1.7em;
 	padding: 0.2em 0.6em;
 }
-
+*/
 thead th {
 	white-space: nowrap;
 }
@@ -447,13 +447,13 @@ th a {
 	text-decoration: none;
 }
 
-th a:link, th a:visited {
+/*th a:link, th a:visited {
 	color: #666666;
 }
 
 th a:hover, th a:focus {
 	color: #333333;
-}
+}*/
 
 th.sortable a {
 	background-position: right;
@@ -477,9 +477,9 @@ th.desc a {
 	background: #ffffff;
 }
 
-th:hover, tr:hover {
+/*th:hover, tr:hover {
 	background: #E1F2B6;
-}
+}*/
 
 /* PAGINATION */
 

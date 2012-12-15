@@ -1,3 +1,4 @@
+<%@ page import="cw.User" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -77,12 +78,11 @@
 				#page-body h1 {
 					margin-top: 0;
 				}
-			}
+			} 
 		</style>
 	</head>
 	<body>
-	       <div id="page-body" role="main">
-
+		<div id="page-body" role="main">
 			<h1>Welcome to TouristPortal</h1>
 			<p>In this site you can buy vacation package</p>
 			<div id="controller-list" role="navigation">
