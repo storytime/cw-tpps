@@ -29,7 +29,7 @@
                 <li id="Place" class="controller"><g:link controller="place">Place</g:link></li>         
                 <li id="TouristAgency" class="controller"><g:link controller="touristAgency">TouristAgency</g:link></li>
                 <li id="Administration" class="controller"><g:link controller="admin">Administration</g:link></li>
-                <li id="Map" class="controller"><a href="#">Map</a></li>            
+                <li id="Map" class="controller"><g:link controller="map">Map</g:link></li>            
             </ul>
 			</div>
 		<g:layoutBody/>
