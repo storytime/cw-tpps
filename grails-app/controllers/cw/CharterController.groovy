@@ -18,6 +18,10 @@ class CharterController {
     def create() {
         [charterInstance: new Charter(params)]
     }
+	
+	def createAjaxCharter() {
+		 [charterInstance: new Charter(params)]
+	}
 
     def save() {
         def charterInstance = new Charter(params)

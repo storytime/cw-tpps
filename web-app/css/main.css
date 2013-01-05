@@ -6,8 +6,11 @@ input, select, textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.1;
+	padding-left: 20px; 
 }
-
+p {
+   padding-left: 20px;
+}
 /* BASE LAYOUT */
 
 html {
@@ -400,7 +403,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 
 /* TABLES */
 
-/*table {
+table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
 	width: 100%;
@@ -437,7 +440,7 @@ th {
 	line-height: 1.7em;
 	padding: 0.2em 0.6em;
 }
-*/
+
 thead th {
 	white-space: nowrap;
 }

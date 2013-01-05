@@ -18,6 +18,14 @@ class ActionController {
     def create() {
         [actionInstance: new Action(params)]
     }
+	
+	def createAjaxAction() {
+		[actionInstance: new Action(params)]
+	}
+	
+	def createAjaxCharter() {
+		redirect(controller:"Charter",action:"createAjaxCharter");
+	}
 
     def save() {
         def actionInstance = new Action(params)
@@ -26,8 +34,14 @@ class ActionController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'action.label', default: 'Action'), actionInstance.id])
-        redirect(action: "show", id: actionInstance.id)
+        //flash.message = message(code: 'default.created.message', args: [message(code: 'action.label', default: 'Action'), actionInstance.id])
+        if(session.touristAgency){
+		flash.message="addAction";
+		redirect(controller:"TouristAgency",action:"index");
+        }
+		else{
+		redirect(action: "show", id: actionInstance.id)
+		}
     }
 
     def show(Long id) {

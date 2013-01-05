@@ -6,8 +6,10 @@ class TouristAgencyController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def index() {
-        redirect(action: "list", params: params)
+    def index(Integer max) {
+        //redirect(action: "list", params: params)
+		params.max = Math.min(max ?: 10, 100)
+		[touristAgencyInstanceList: TouristAgency.list(params), touristAgencyInstanceTotal: TouristAgency.count()]
     }
 
     def list(Integer max) {
@@ -99,4 +101,16 @@ class TouristAgencyController {
             redirect(action: "show", id: id)
         }
     }
+	
+	
+	
+	def addWizard(){
+			
+	}
+	
+	def createAjaxAction() {
+			redirect(controller:"Action",action:"createAjaxAction");
+	}
+	
+	
 }

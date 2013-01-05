@@ -103,13 +103,21 @@ class UserController {
 	def doLogin() {
 		def user = User.findWhere(name:params['name'],
 			passwdHash:params['password'])
-			session.user = user
 			if (user){
-			redirect(controller:'user',action:'index_logining', params: params)}
-			else{
-			flash.message = "Incorrect login or password"
-			redirect(uri:'/')}
-			}
+				session.user = user
+				redirect(controller:'user',action:'index_logining', params: params)}
+			else {
+				def touristAgency=TouristAgency.findWhere(login:params['name'],
+				passwdHash:params['password'])
+				if (touristAgency){
+					session.touristAgency = touristAgency
+					redirect(controller:'user',action:'index_logining')}
+					else{
+						flash.message = "Incorrect login or password"
+						redirect(uri:'/')
+						}
+				}
+	}
 	
 	def index_logining(){
 		

@@ -1,5 +1,6 @@
 
 <%@ page import="cw.Action" %>
+<%@ page import="cw.Charter" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,7 +12,6 @@
 		<a href="#list-action" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -54,5 +54,15 @@
 				<g:paginate total="${actionInstanceTotal}" />
 			</div>
 		</div>
+		<table><tr>
+		<th>
+		<g:remoteLink action="createAjax" update="action">Create Ajax Action</g:remoteLink>
+		</th>
+		<th>
+		<g:remoteLink action="createAjaxCharter" update="action">Create Ajax Charter</g:remoteLink>
+		</th>
+		</tr>
+		</table>
+		 <div id="action"></div>
 	</body>
 </html>
