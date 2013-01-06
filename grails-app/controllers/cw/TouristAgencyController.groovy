@@ -109,7 +109,8 @@ class TouristAgencyController {
 	}
 	
 	def createAjaxAction() {
-			redirect(controller:"Action",action:"createAjaxAction");
+			//redirect(controller:"Action",action:"createAjaxAction");
+			render(view:"../action/index")
 	}
 	
 	

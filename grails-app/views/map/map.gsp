@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		#map_canvas { height: 100% }
 		<g:javascript src="googleMap.js" />
     </head>
 	<body>

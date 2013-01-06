@@ -39,7 +39,7 @@
 		<g:message code="vacationPackage.fk_action.label" default="Fkaction" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="fk_action" name="fk_action.id" from="${cw.Action.list()}" optionKey="id" required="" value="${vacationPackageInstance?.fk_action?.id}" class="many-to-one"/>
+	<g:select id="fk_action" name="fk_action.id" from="${session.touristAgency.mapWizard.get("action")}" optionKey="id" required="" value="${vacationPackageInstance?.fk_action?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationPackageInstance, field: 'fk_charter', 'error')} required">
@@ -47,7 +47,7 @@
 		<g:message code="vacationPackage.fk_charter.label" default="Fkcharter" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="fk_charter" name="fk_charter.id" from="${cw.Charter.list()}" optionKey="id" required="" value="${vacationPackageInstance?.fk_charter?.id}" class="many-to-one"/>
+	<g:select id="fk_charter" name="fk_charter.id" from="${session.touristAgency.mapWizard.get("charter")}" optionKey="id" required="" value="${vacationPackageInstance?.fk_charter?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationPackageInstance, field: 'fk_touristAgency', 'error')} required">

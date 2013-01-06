@@ -19,8 +19,9 @@ class CharterController {
         [charterInstance: new Charter(params)]
     }
 	
-	def createAjaxCharter() {
-		 [charterInstance: new Charter(params)]
+	def createWizardCharter(Integer max) {
+		 params.max = Math.min(max ?: 10, 100)
+        [charterInstanceList: Charter.list(params), charterInstanceTotal: Charter.count()]
 	}
 
     def save() {
@@ -29,9 +30,16 @@ class CharterController {
             render(view: "create", model: [charterInstance: charterInstance])
             return
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'charter.label', default: 'Charter'), charterInstance.id])
-        redirect(action: "show", id: charterInstance.id)
+		
+        //flash.message = message(code: 'default.created.message', args: [message(code: 'charter.label', default: 'Charter'), charterInstance.id])
+		if(session.touristAgency){
+					session.touristAgency.mapWizard.put("charter", charterInstance)
+					redirect(controller:"vacationPackage", action: "create")
+			
+		}
+		else{
+		redirect(action: "show", id: charterInstance.id)
+		}
     }
 
     def show(Long id) {
@@ -103,4 +111,10 @@ class CharterController {
             redirect(action: "show", id: id)
         }
     }
+	
+	def choose(Long id){
+		def charterInstance = Charter.get(id)
+		session.touristAgency.mapWizard.put("charter", charterInstance)
+		redirect(controller:"vacationPackage", action: "create")
+	}
 }

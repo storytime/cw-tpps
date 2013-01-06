@@ -19,14 +19,10 @@ class ActionController {
         [actionInstance: new Action(params)]
     }
 	
-	def createAjaxAction() {
-		[actionInstance: new Action(params)]
+	def createWizardAction(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+        [actionInstanceList: Action.list(params), actionInstanceTotal: Action.count()]
 	}
-	
-	def createAjaxCharter() {
-		redirect(controller:"Charter",action:"createAjaxCharter");
-	}
-
     def save() {
         def actionInstance = new Action(params)
         if (!actionInstance.save(flush: true)) {
@@ -36,9 +32,14 @@ class ActionController {
 
         //flash.message = message(code: 'default.created.message', args: [message(code: 'action.label', default: 'Action'), actionInstance.id])
         if(session.touristAgency){
-		flash.message="addAction";
-		redirect(controller:"TouristAgency",action:"index");
-        }
+			session.touristAgency.mapWizard.put("action", actionInstance)
+		redirect(controller:"charter", action: "createWizardCharter")
+			
+		}
+		//flash.message="addAction";
+		//redirect(controller:"TouristAgency",action:"index");
+        //render(view:'../touristAgency/addWizard')
+		//}
 		else{
 		redirect(action: "show", id: actionInstance.id)
 		}
@@ -113,4 +114,10 @@ class ActionController {
             redirect(action: "show", id: id)
         }
     }
+	def choose(Long id){		
+		def actionInstance = Action.get(id)
+		session.touristAgency.mapWizard.put("action", actionInstance)
+		redirect(controller:"charter", action: "createWizardCharter")
+	}
+	
 }

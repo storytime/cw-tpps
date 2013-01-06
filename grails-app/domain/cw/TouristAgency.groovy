@@ -8,6 +8,10 @@ class TouristAgency  {
 	String name;
 	String login;
 	String passwdHash;
+	
+	public def mapWizard = [:]
+	
+	static transients = ['mapWizard']
 
 	static hasMany = [vacationPackages:VacationPackage]
 
