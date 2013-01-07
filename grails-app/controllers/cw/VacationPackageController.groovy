@@ -25,9 +25,15 @@ class VacationPackageController {
             render(view: "create", model: [vacationPackageInstance: vacationPackageInstance])
             return
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'vacationPackage.label', default: 'VacationPackage'), vacationPackageInstance.id])
+		if(session.touristAgency){
+		 session.touristAgency.mapWizard.put("vacationPackage", vacationPackageInstance)
+		 redirect(controller:"trip", action:"create")
+		}
+        else 
+		{
+		flash.message = message(code: 'default.created.message', args: [message(code: 'vacationPackage.label', default: 'VacationPackage'), vacationPackageInstance.id])
         redirect(action: "show", id: vacationPackageInstance.id)
+		}
     }
 
     def show(Long id) {

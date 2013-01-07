@@ -33,7 +33,7 @@
 	</label>
 	<g:datePicker name="startDate" precision="day"  value="${actionInstance?.startDate}"  />
 </div>
-
+<g:if test="${session.admin}">
 <div class="fieldcontain ${hasErrors(bean: actionInstance, field: 'vacationPackages', 'error')} ">
 	<label for="vacationPackages">
 		<g:message code="action.vacationPackages.label" default="Vacation Packages" />
@@ -50,4 +50,4 @@
 </ul>
 
 </div>
-
+</g:if>

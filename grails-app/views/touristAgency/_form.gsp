@@ -57,6 +57,7 @@
 	</label>
 	<g:textField name="passwdHash" maxlength="25" required="" value="${touristAgencyInstance?.passwdHash}"/>
 </div>
+<g:if test="${session.admin!=null}" >
 
 <div class="fieldcontain ${hasErrors(bean: touristAgencyInstance, field: 'vacationPackages', 'error')} ">
 	<label for="vacationPackages">
@@ -75,3 +76,4 @@
 
 </div>
 
+</g:if>

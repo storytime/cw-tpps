@@ -50,14 +50,6 @@
 	<g:textField name="name" maxlength="25" required="" value="${userInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'balance', 'error')} required">
-	<label for="balance">
-		<g:message code="user.balance.label" default="Balance" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select name="balance" from="${0..100000}" class="range" required="" value="${fieldValue(bean: userInstance, field: 'balance')}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'avatar', 'error')} ">
 	<label for="avatar">
 		<g:message code="user.avatar.label" default="Avatar" />
@@ -65,7 +57,7 @@
 	</label>
 	<g:textField name="avatar" value="${userInstance?.avatar}"/>
 </div>
-
+<g:if test="${session.admin!=null}" >
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'vacationPackages', 'error')} ">
 	<label for="vacationPackages">
 		<g:message code="user.vacationPackages.label" default="Vacation Packages" />
@@ -74,3 +66,4 @@
 	<g:select name="vacationPackages" from="${cw.VacationPackage.list()}" multiple="multiple" optionKey="id" size="5" value="${userInstance?.vacationPackages*.id}" class="many-to-many"/>
 </div>
 
+</g:if>

@@ -12,9 +12,7 @@ class Country {
 	static constraints = {
 
 		wikiLink  nullable:false;
-		name nullable:false;
 
 		wikiLink(blank:false,url:true,size: 4..255);
-		name(blank:false,size: 4..25);
 	}
 }

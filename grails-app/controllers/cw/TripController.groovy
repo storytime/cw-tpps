@@ -25,9 +25,15 @@ class TripController {
             render(view: "create", model: [tripInstance: tripInstance])
             return
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'trip.label', default: 'Trip'), tripInstance.id])
-        redirect(action: "show", id: tripInstance.id)
+		if(session.touristAgency) {
+			session.touristAgency.mapWizard.put("trip",tripInstance)
+			redirect(controller:"country", action:"create")
+		   }
+		   else
+		   {
+			   flash.message = message(code: 'default.created.message', args: [message(code: 'trip.label', default: 'Trip'), tripInstance.id])
+			   redirect(action: "show", id: tripInstance.id)
+		   }
     }
 
     def show(Long id) {

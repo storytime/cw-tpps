@@ -15,7 +15,7 @@
 		<g:message code="country.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" maxlength="25" required="" value="${countryInstance?.name}"/>
+	<g:select from="${countryList}" name="name" value="${countryInstance?.name}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'fk_trip', 'error')} required">
@@ -23,9 +23,10 @@
 		<g:message code="country.fk_trip.label" default="Fktrip" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="fk_trip" name="fk_trip.id" from="${cw.Trip.list()}" optionKey="id" required="" value="${countryInstance?.fk_trip?.id}" class="many-to-one"/>
+	<g:select id="fk_trip" name="fk_trip.id" from="${session.touristAgency.mapWizard.get("trip")}" optionKey="id" required="" value="${countryInstance?.fk_trip?.id}" class="many-to-one"/>
 </div>
 
+<g:if test="${session.admin}">
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'hotels', 'error')} ">
 	<label for="hotels">
 		<g:message code="country.hotels.label" default="Hotels" />
@@ -60,3 +61,4 @@
 
 </div>
 
+</g:if>
