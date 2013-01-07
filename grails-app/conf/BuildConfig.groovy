@@ -35,6 +35,8 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         //runtime 'mysql:mysql-connector-java:5.1.20'
+		runtime 'javax.activation:activation:1.1.1'
+		runtime 'javax.mail:mail:1.4.3'
     }
 
     plugins {
