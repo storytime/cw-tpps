@@ -85,7 +85,7 @@
 
 	<table>
     <tr> 
-    	<g:if test="${session.touristAgency==null}" and test="${session.user==null}" and test="${session.admin==null}">
+    	<g:if test="${login}">
     <td valign="top" style="padding-left: 1em;">
 	<g:form url="[action:'doLogin',controller:'user']" method="post">
 		<p>Enter your login details below:</p>

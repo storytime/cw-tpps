@@ -6,6 +6,7 @@ class MapController {
 		redirect(action: "map")
 	}
 	def map() {
-		
+		String country ="";
+		[countryName:country]
 	}
 }

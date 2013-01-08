@@ -115,4 +115,7 @@ class CountryController {
             redirect(action: "show", id: id)
         }
     }
+	def searchVacationPackage(){
+		[countryName:params.get("country")]
+	}
 }

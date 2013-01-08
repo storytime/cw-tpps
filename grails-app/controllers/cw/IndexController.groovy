@@ -3,7 +3,11 @@ package cw
 class IndexController {
 
     def index() { 
-		[placeInstanceList: Place.list(params)]
+		def logining = false
+		if (session.touristAgency==null && session.user==null && session.admin==null){
+			logining = true
+		}
+		[placeInstanceList: Place.list(params),login:logining]
 	}
 	
 	def Logout(){
