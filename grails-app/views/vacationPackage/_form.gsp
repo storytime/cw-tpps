@@ -57,7 +57,7 @@
 	</label>
 	<g:select id="fk_touristAgency" name="fk_touristAgency.id" from="${cw.TouristAgency.list()}" optionKey="id" required="" value="${vacationPackageInstance?.fk_touristAgency?.id}" class="many-to-one"/>
 </div>
-
+<g:if test="${session.admin}">
 <div class="fieldcontain ${hasErrors(bean: vacationPackageInstance, field: 'trip', 'error')} ">
 	<label for="trip">
 		<g:message code="vacationPackage.trip.label" default="Trip" />
@@ -74,4 +74,4 @@
 </ul>
 
 </div>
-
+</g:if>	

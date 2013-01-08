@@ -2,6 +2,15 @@
 
 
 
+
+<div class="fieldcontain ${hasErrors(bean: charterInstance, field: 'idNumber', 'error')} required">
+	<label for="idNumber">
+		<g:message code="charter.idNumber.label" default="Id Number" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="idNumber" value="${charterInstance?.idNumber}"  />
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: charterInstance, field: 'startDate', 'error')} required">
 	<label for="startDate">
 		<g:message code="charter.startDate.label" default="Start Date" />
@@ -33,7 +42,7 @@
 	</label>
 	<g:select name="price" from="${1..10000}" class="range" required="" value="${fieldValue(bean: charterInstance, field: 'price')}"/>
 </div>
-
+<g:if test="${session.admin}">
 <div class="fieldcontain ${hasErrors(bean: charterInstance, field: 'vacationPackages', 'error')} ">
 	<label for="vacationPackages">
 		<g:message code="charter.vacationPackages.label" default="Vacation Packages" />
@@ -50,4 +59,4 @@
 </ul>
 
 </div>
-
+</g:if>

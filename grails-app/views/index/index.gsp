@@ -82,8 +82,11 @@
 		</style>
 	</head>
 	<body>
+
 	<table>
-    <tr> <td valign="top" style="padding-left: 1em;">
+    <tr> 
+    	<g:if test="${login}">
+    <td valign="top" style="padding-left: 1em;">
 	<g:form url="[action:'doLogin',controller:'user']" method="post">
 		<p>Enter your login details below:</p>
 		<table>
@@ -105,14 +108,23 @@
 		</td>
 		</tr>
 		</table>
-		<div class="buttons">
-		<input type="submit" value="Login"></input>
+		<div class="buttons">		
+		<input type="submit" value="Login"></input>			
+		<a href="user/registration" style="color: #666666">Registration</a>
 		</div>
 		</g:form>
 		<g:if test="${flash.message}">
 			     <p style="color: red;">${flash.message}<p>
 		</g:if>
 		</td>
+		</g:if>
+		<g:else>
+		<td>
+		<div class="buttons">
+		<g:link action="Logout">Log out</g:link>
+		</div>
+		</td>
+		</g:else>
 		<td align="center" style="padding-left: 1em;">
 			<h1>Welcome to TouristPortal</h1>
 			<p>In this site you can buy vacation package</p>

@@ -41,7 +41,7 @@
 	</label>
 	<g:textArea name="name" cols="40" rows="5" maxlength="255" required="" value="${tripInstance?.name}"/>
 </div>
-
+<g:if test="${session.admin}">
 <div class="fieldcontain ${hasErrors(bean: tripInstance, field: 'countries', 'error')} ">
 	<label for="countries">
 		<g:message code="trip.countries.label" default="Countries" />
@@ -58,12 +58,12 @@
 </ul>
 
 </div>
-
+</g:if>
 <div class="fieldcontain ${hasErrors(bean: tripInstance, field: 'fk_vacationPackage', 'error')} required">
 	<label for="fk_vacationPackage">
 		<g:message code="trip.fk_vacationPackage.label" default="Fkvacation Package" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="fk_vacationPackage" name="fk_vacationPackage.id" from="${cw.VacationPackage.list()}" optionKey="id" required="" value="${tripInstance?.fk_vacationPackage?.id}" class="many-to-one"/>
+	<g:select id="fk_vacationPackage" name="fk_vacationPackage.id" from="${session.touristAgency.mapWizard.get("vacationPackage")}" optionKey="id" required="" value="${tripInstance?.fk_vacationPackage?.id}" class="many-to-one"/>
 </div>
 

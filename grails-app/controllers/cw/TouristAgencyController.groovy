@@ -27,9 +27,12 @@ class TouristAgencyController {
             render(view: "create", model: [touristAgencyInstance: touristAgencyInstance])
             return
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'touristAgency.label', default: 'TouristAgency'), touristAgencyInstance.id])
+		if(null==session.admin){
+			redirect(uri:'/')
+		}
+       else { flash.message = message(code: 'default.created.message', args: [message(code: 'touristAgency.label', default: 'TouristAgency'), touristAgencyInstance.id])
         redirect(action: "show", id: touristAgencyInstance.id)
+       }
     }
 
     def show(Long id) {
@@ -109,9 +112,11 @@ class TouristAgencyController {
 	}
 	
 	def createAjaxAction() {
-			//redirect(controller:"Action",action:"createAjaxAction");
 			render(view:"../action/index")
 	}
 	
+	def registration_touristAgency(){
+		[touristAgencyInstance: new TouristAgency(params)]
+}
 	
 }

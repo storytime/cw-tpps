@@ -25,9 +25,12 @@ class UserController {
             render(view: "create", model: [userInstance: userInstance])
             return
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-        redirect(action: "show", id: userInstance.id)
+		if(null==session.admin){
+			redirect(uri:'/')
+		}
+        else {flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+			  redirect(action: "show", id: userInstance.id)
+        }
     }
 
     def show(Long id) {
@@ -105,23 +108,33 @@ class UserController {
 			passwdHash:params['password'])
 			if (user){
 				session.user = user
-				redirect(controller:'user',action:'index_logining', params: params)}
+				redirect(uri:'/')}
 			else {
 				def touristAgency=TouristAgency.findWhere(login:params['name'],
 				passwdHash:params['password'])
 				if (touristAgency){
 					session.touristAgency = touristAgency
-					redirect(controller:'user',action:'index_logining')}
+					redirect(uri:'/')}
 					else{
-						flash.message = "Incorrect login or password"
+						def admin=Admin.findWhere(login:params['name'],
+							passwdHash:params['password'])
+						if(admin){
+							session.admin=admin
+							redirect(uri:'/')
+						}
+						else {flash.message = "Incorrect login or password"
 						redirect(uri:'/')
+						}
 						}
 				}
 	}
-	
-	def index_logining(){
+
+	def registration (){
 		
 	}
-			
+	
+	def registration_user (){
+		[userInstance: new User(params)]
+	}
 	
 }

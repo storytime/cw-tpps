@@ -22,6 +22,8 @@
 			<table>
 				<thead>
 					<tr>
+						
+						<g:sortableColumn property="idNumber" title="${message(code: 'charter.idNumber.label', default: 'Id Number')}" />
 					
 						<g:sortableColumn property="startDate" title="${message(code: 'charter.startDate.label', default: 'Start Date')}" />
 					
@@ -37,7 +39,8 @@
 				<g:each in="${charterInstanceList}" status="i" var="charterInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${charterInstance.id}">${fieldValue(bean: charterInstance, field: "startDate")}</g:link></td>
+						<td><g:link action="show" id="${charterInstance.id}">${fieldValue(bean: charterInstance, field: "idNumber")}</g:link></td>
+						<td>${fieldValue(bean: charterInstance, field: "startDate")}</td>
 					
 						<td>${fieldValue(bean: charterInstance, field: "typeCharter")}</td>
 					

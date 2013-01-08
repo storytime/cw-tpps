@@ -76,15 +76,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.balance}">
-				<li class="fieldcontain">
-					<span id="balance-label" class="property-label"><g:message code="user.balance.label" default="Balance" /></span>
-					
-						<span class="property-value" aria-labelledby="balance-label"><g:fieldValue bean="${userInstance}" field="balance"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${userInstance?.avatar}">
 				<li class="fieldcontain">
 					<span id="avatar-label" class="property-label"><g:message code="user.avatar.label" default="Avatar" /></span>

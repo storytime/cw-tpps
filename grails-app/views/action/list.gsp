@@ -54,15 +54,5 @@
 				<g:paginate total="${actionInstanceTotal}" />
 			</div>
 		</div>
-		<table><tr>
-		<th>
-		<g:remoteLink action="createAjax" update="action">Create Ajax Action</g:remoteLink>
-		</th>
-		<th>
-		<g:remoteLink action="createAjaxCharter" update="action">Create Ajax Charter</g:remoteLink>
-		</th>
-		</tr>
-		</table>
-		 <div id="action"></div>
 	</body>
 </html>

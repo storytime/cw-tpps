@@ -568,7 +568,7 @@ th.desc a {
 .no-borderradius .buttons input:hover, .no-borderradius .buttons input:focus,
 .no-borderradius .buttons a:hover, .no-borderradius .buttons a:focus {
 	background-color: transparent;
-	color: #444444;
+	color: #444444;	
 	text-decoration: underline;
 }
 

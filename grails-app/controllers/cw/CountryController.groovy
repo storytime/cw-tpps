@@ -1,5 +1,6 @@
 package cw
 
+import org.codehaus.groovy.grails.plugins.web.taglib.CountryTagLib;
 import org.springframework.dao.DataIntegrityViolationException
 
 class CountryController {
@@ -16,11 +17,20 @@ class CountryController {
     }
 
     def create() {
-        [countryInstance: new Country(params)]
+		Locale[] locales = Locale.getAvailableLocales();
+		def countries=[]	
+		for (Locale locale : locales) {
+			if (!locale.getDisplayCountry().isEmpty()&&!countries.contains(locale.getDisplayCountry())){
+			countries.add(locale.getDisplayCountry())
+			}
+		}
+		countries.sort()
+        [countryInstance: new Country(params), countryList:countries]
     }
 
     def save() {
         def countryInstance = new Country(params)
+		//countryInstance.name=Locale.availableLocales.find{it.ISO3Country == params['name']}
         if (!countryInstance.save(flush: true)) {
             render(view: "create", model: [countryInstance: countryInstance])
             return
@@ -48,8 +58,15 @@ class CountryController {
             redirect(action: "list")
             return
         }
-
-        [countryInstance: countryInstance]
+		Locale[] locales = Locale.getAvailableLocales();
+		def countries=[]
+		for (Locale locale : locales) {
+			if (!locale.getDisplayCountry().isEmpty()&&!countries.contains(locale.getDisplayCountry())){
+			countries.add(locale.getDisplayCountry())
+			}
+		}
+		countries.sort()
+        [countryInstance: countryInstance, countryList:countries]
     }
 
     def update(Long id, Long version) {
@@ -71,7 +88,6 @@ class CountryController {
         }
 
         countryInstance.properties = params
-
         if (!countryInstance.save(flush: true)) {
             render(view: "edit", model: [countryInstance: countryInstance])
             return
@@ -99,4 +115,7 @@ class CountryController {
             redirect(action: "show", id: id)
         }
     }
+	def searchVacationPackage(){
+		[countryName:params.get("country")]
+	}
 }

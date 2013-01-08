@@ -8,7 +8,6 @@ class User {
 	String address;
 	String email;
 	String name;
-	float balance;
 	String avatar
 	static hasMany = [vacationPackages:VacationPackage]
 
@@ -20,7 +19,6 @@ class User {
 		address  nullable:false;
 		email nullable:false;
 		name  nullable:false;
-		balance  nullable:false;
 		avatar nullable: true
 		secondName(blank:false,size: 4..25);
 		phone(blank:false,size: 6..12);
@@ -28,7 +26,6 @@ class User {
 		address(blank:false,size: 4..255);
 		email(blank:false,email:true);
 		name(blank:false,size: 4..25);
-		balance (blank: false, range: 0..100000);
 		avatar(blank:true)
 	}
 }
