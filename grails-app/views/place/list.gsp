@@ -54,11 +54,12 @@
 					
 						<td>${fieldValue(bean: placeInstance, field: "decription")}</td>
 					
-						<td><img src="${resource(dir:'placeImages', file: placeInstance.image)}" /></td>
-					
+						<td><img src="${resource(dir:'placeImages', file: placeInstance.image)}"  width="300" height="150"/> </td>
+						
 						<td>${fieldValue(bean: placeInstance, field: "fk_countris")}</td>
 					
 					</tr>
+				
 				</g:each>
 				</tbody>
 			</table>

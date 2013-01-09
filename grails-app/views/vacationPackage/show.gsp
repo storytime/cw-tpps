@@ -60,7 +60,7 @@
 			
 				<g:if test="${vacationPackageInstance?.fk_action}">
 				<li class="fieldcontain">
-					<span id="fk_action-label" class="property-label"><g:message code="vacationPackage.fk_action.label" default="Fkaction" /></span>
+					<span id="fk_action-label" class="property-label"><g:message code="vacationPackage.fk_action.label" default="Action" /></span>
 					
 						<span class="property-value" aria-labelledby="fk_action-label"><g:link controller="action" action="show" id="${vacationPackageInstance?.fk_action?.id}">${vacationPackageInstance?.fk_action?.encodeAsHTML()}</g:link></span>
 					
@@ -69,7 +69,7 @@
 			
 				<g:if test="${vacationPackageInstance?.fk_charter}">
 				<li class="fieldcontain">
-					<span id="fk_charter-label" class="property-label"><g:message code="vacationPackage.fk_charter.label" default="Fkcharter" /></span>
+					<span id="fk_charter-label" class="property-label"><g:message code="vacationPackage.fk_charter.label" default="Charter" /></span>
 					
 						<span class="property-value" aria-labelledby="fk_charter-label"><g:link controller="charter" action="show" id="${vacationPackageInstance?.fk_charter?.id}">${vacationPackageInstance?.fk_charter?.encodeAsHTML()}</g:link></span>
 					
@@ -78,7 +78,7 @@
 			
 				<g:if test="${vacationPackageInstance?.fk_touristAgency}">
 				<li class="fieldcontain">
-					<span id="fk_touristAgency-label" class="property-label"><g:message code="vacationPackage.fk_touristAgency.label" default="Fktourist Agency" /></span>
+					<span id="fk_touristAgency-label" class="property-label"><g:message code="vacationPackage.fk_touristAgency.label" default="Tourist agency" /></span>
 					
 						<span class="property-value" aria-labelledby="fk_touristAgency-label"><g:link controller="touristAgency" action="show" id="${vacationPackageInstance?.fk_touristAgency?.id}">${vacationPackageInstance?.fk_touristAgency?.encodeAsHTML()}</g:link></span>
 					

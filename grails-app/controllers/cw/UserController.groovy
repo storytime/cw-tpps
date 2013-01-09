@@ -144,14 +144,12 @@ class UserController {
 	def sendMail(){
 		
 		String visa=params.get("visa")
-		def ms =new MailSenderService()
+		def ms = new MailSenderService()
         String ident=params.get("BuyVacationPackage")
     	def vacationPackage = VacationPackage.get(ident.toLong())
-		print vacationPackage.priceFull
 		String subject="You buy vacation package" 
 		String body = 	"Print this ID=${visa} and show the landing of transport. You vacation package:Price: ${vacationPackage.priceFull}; start date: ${vacationPackage.startDate}; people: ${vacationPackage.people}"
-		ms.sendMail(session.user.email, subject, body)
-		
+		ms.sendMail(session.user.email, subject, body)		
 		User user = session.user
 		if(!user.isAttached()){
 			user.attach()

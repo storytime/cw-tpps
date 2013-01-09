@@ -119,7 +119,7 @@
 		</td>
 		</g:if>
 		<g:else>
-		<td>
+		<td style="width: 100px">
 		<div class="buttons">
 		<g:link action="Logout">Log out</g:link>
 		</div>
@@ -127,51 +127,18 @@
 		</g:else>
 		<td align="center" style="padding-left: 1em;">
 			<h1>Welcome to TouristPortal</h1>
-			<p>In this site you can buy vacation package</p>
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
+			<h3><p>In this site you can buy vacation package</p></h3>
 			    <table>
-				<thead>
-					<tr>
 					
-						<g:sortableColumn property="price" title="${message(code: 'place.price.label', default: 'Price')}" />
-					
-						<g:sortableColumn property="time" title="${message(code: 'place.time.label', default: 'Time')}" />
-					
-						<g:sortableColumn property="type" title="${message(code: 'place.type.label', default: 'Type')}" />
-					
-						<g:sortableColumn property="decription" title="${message(code: 'place.decription.label', default: 'Decription')}" />
-					
-						<g:sortableColumn property="image" title="${message(code: 'place.image.label', default: 'Image')}" />
-					
-						<th><g:message code="place.fk_countris.label" default="Country" /></th>
-					
-					</tr>
-				</thead>
-				<tbody>
 				<g:each in="${placeInstanceList}" status="i" var="placeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${placeInstance.id}">${fieldValue(bean: placeInstance, field: "price")}</g:link></td>
+					<td><img align="left" style="padding-right: 10px" src="${resource(dir:'placeImages', file: placeInstance.image)}" width="300" height="150" />
 					
-						<td>${fieldValue(bean: placeInstance, field: "time")}</td>
+						${fieldValue(bean: placeInstance, field: "decription")}</td>
 					
-						<td>${fieldValue(bean: placeInstance, field: "type")}</td>
-					
-						<td>${fieldValue(bean: placeInstance, field: "decription")}</td>
-					
-						<td><img src="${resource(dir:'placeImages', file: placeInstance.image)}" width="50" height="41" /></td>
-					
-						<td>${fieldValue(bean: placeInstance, field: "fk_countris")}</td>
-					
-					</tr>
-				</g:each>
+											
+			</g:each>
 				</tbody>
 			</table>
 		

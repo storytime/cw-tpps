@@ -12,7 +12,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: hotNewsInstance, field: 'fk_places', 'error')} required">
 	<label for="fk_places">
-		<g:message code="hotNews.fk_places.label" default="Fkplaces" />
+		<g:message code="hotNews.fk_places.label" default="Places" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="fk_places" name="fk_places.id" from="${cw.Place.list()}" optionKey="id" required="" value="${hotNewsInstance?.fk_places?.id}" class="many-to-one"/>

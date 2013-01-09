@@ -11,7 +11,6 @@
 		<a href="#show-place" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -70,7 +69,7 @@
 			
 				<g:if test="${placeInstance?.fk_countris}">
 				<li class="fieldcontain">
-					<span id="fk_countris-label" class="property-label"><g:message code="place.fk_countris.label" default="Fkcountris" /></span>
+					<span id="fk_countris-label" class="property-label"><g:message code="place.fk_countris.label" default="Country" /></span>
 					
 						<span class="property-value" aria-labelledby="fk_countris-label"><g:link controller="country" action="show" id="${placeInstance?.fk_countris?.id}">${placeInstance?.fk_countris?.encodeAsHTML()}</g:link></span>
 					

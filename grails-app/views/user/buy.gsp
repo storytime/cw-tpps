@@ -7,7 +7,7 @@
 		<title>Buy vacation package</title>
 	</head>
 	<body>
-	<g:form action="sendMailToUser">
+	<g:form action="sendMail">
 		<label>Code Visa:</label><g:textField name="visa" value=""/>
 		<g:hiddenField name="BuyVacationPackage" value="${vacationPackageBean.id}"/>
 			<input  type="submit" value="Buy"/>

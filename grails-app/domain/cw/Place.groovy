@@ -23,4 +23,7 @@ class Place  {
 		decription(blank: false, size: 0..10000);		
 		image(blank:true)
     }
+	String toString(){
+		"Country: ${fk_countris} time: ${time}"
+	}
 }
