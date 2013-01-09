@@ -9,12 +9,14 @@
 	</head>
 	<body>
 		<a href="#show-touristAgency" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<g:if test="${session.user==null}">
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+		</g:if>
 		<div id="show-touristAgency" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -57,7 +59,7 @@
 					
 				</li>
 				</g:if>
-			
+			    <g:if test="${session.user==null}">
 				<g:if test="${touristAgencyInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="touristAgency.name.label" default="Name" /></span>
@@ -84,7 +86,7 @@
 					
 				</li>
 				</g:if>
-			
+				</g:if>
 				<g:if test="${touristAgencyInstance?.vacationPackages}">
 				<li class="fieldcontain">
 					<span id="vacationPackages-label" class="property-label"><g:message code="touristAgency.vacationPackages.label" default="Vacation Packages" /></span>
@@ -97,6 +99,7 @@
 				</g:if>
 			
 			</ol>
+			<g:if test="${session.user==null}">
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${touristAgencyInstance?.id}" />
@@ -104,6 +107,7 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+			</g:if>
 		</div>
 	</body>
 </html>

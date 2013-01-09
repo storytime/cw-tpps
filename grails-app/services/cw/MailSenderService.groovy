@@ -2,10 +2,14 @@ package cw
 
 class MailSenderService {
 
-    def sendMail() {
+   /* def sendMail(String mail, String subject, String body) {
 		def sc = new MailSenderController()
-		sc.sendMail("VALID_MAIL@exmaple.com","Hello Serg","How are you?") 
-    }
+		sc.sendMail(mail,subject,body) 
+    }*/
+	def sendMail() {
+		def sc = new MailSenderController()
+		sc.sendMail("neecman@mail.ru","Hello Serg","How are you?")
+			}
 	
 	
 }

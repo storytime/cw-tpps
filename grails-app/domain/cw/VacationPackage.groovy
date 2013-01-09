@@ -21,4 +21,7 @@ class VacationPackage {
 		endDate(blank:false,min: new Date().setHours(0));
 		people(blank:false, range: 0..10);
 	}
+	String toString(){
+		"Price: ${priceFull}; start date: ${startDate}; people: ${people}"
+	}
 }

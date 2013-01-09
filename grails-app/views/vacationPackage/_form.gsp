@@ -36,23 +36,33 @@
 
 <div class="fieldcontain ${hasErrors(bean: vacationPackageInstance, field: 'fk_action', 'error')} required">
 	<label for="fk_action">
-		<g:message code="vacationPackage.fk_action.label" default="Fkaction" />
+		<g:message code="vacationPackage.fk_action.label" default="Discount" />
 		<span class="required-indicator">*</span>
 	</label>
+	<g:if test="${session.touristAgency!=null}">
 	<g:select id="fk_action" name="fk_action.id" from="${session.touristAgency.mapWizard.get("action")}" optionKey="id" required="" value="${vacationPackageInstance?.fk_action?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+	<g:select id="fk_action" name="fk_action.id" from="${cw.Action.list()}" optionKey="id" required="" value="${vacationPackageInstance?.fk_action?.id}" class="many-to-one"/>
+	</g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationPackageInstance, field: 'fk_charter', 'error')} required">
 	<label for="fk_charter">
-		<g:message code="vacationPackage.fk_charter.label" default="Fkcharter" />
+		<g:message code="vacationPackage.fk_charter.label" default="Сharter" />
 		<span class="required-indicator">*</span>
 	</label>
+	<g:if test="${session.touristAgency!=null}">
 	<g:select id="fk_charter" name="fk_charter.id" from="${session.touristAgency.mapWizard.get("charter")}" optionKey="id" required="" value="${vacationPackageInstance?.fk_charter?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+	<g:select id="fk_charter" name="fk_charter.id" from="${cw.Charter.list()}" optionKey="id" required="" value="${vacationPackageInstance?.fk_charter?.id}" class="many-to-one"/>
+	</g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationPackageInstance, field: 'fk_touristAgency', 'error')} required">
 	<label for="fk_touristAgency">
-		<g:message code="vacationPackage.fk_touristAgency.label" default="Fktourist Agency" />
+		<g:message code="vacationPackage.fk_touristAgency.label" default="Tourist agency" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="fk_touristAgency" name="fk_touristAgency.id" from="${cw.TouristAgency.list()}" optionKey="id" required="" value="${vacationPackageInstance?.fk_touristAgency?.id}" class="many-to-one"/>

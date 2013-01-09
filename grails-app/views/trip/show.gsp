@@ -11,7 +11,6 @@
 		<a href="#show-trip" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -68,11 +67,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${tripInstance?.countries}">
+				<g:if test="${tripInstance?.fk_countries}">
 				<li class="fieldcontain">
 					<span id="countries-label" class="property-label"><g:message code="trip.countries.label" default="Countries" /></span>
 					
-						<g:each in="${tripInstance.countries}" var="c">
+						<g:each in="${tripInstance.fk_countries}" var="c">
 						<span class="property-value" aria-labelledby="countries-label"><g:link controller="country" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
@@ -81,7 +80,7 @@
 			
 				<g:if test="${tripInstance?.fk_vacationPackage}">
 				<li class="fieldcontain">
-					<span id="fk_vacationPackage-label" class="property-label"><g:message code="trip.fk_vacationPackage.label" default="Fkvacation Package" /></span>
+					<span id="fk_vacationPackage-label" class="property-label"><g:message code="trip.fk_vacationPackage.label" default="Vacation Package" /></span>
 					
 						<span class="property-value" aria-labelledby="fk_vacationPackage-label"><g:link controller="vacationPackage" action="show" id="${tripInstance?.fk_vacationPackage?.id}">${tripInstance?.fk_vacationPackage?.encodeAsHTML()}</g:link></span>
 					

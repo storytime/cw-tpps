@@ -21,13 +21,14 @@ class TripController {
 
     def save() {
         def tripInstance = new Trip(params)
+		print params.get("fk_countries").name
+		print params.get("fk_vacationPackage").priceFull
         if (!tripInstance.save(flush: true)) {
             render(view: "create", model: [tripInstance: tripInstance])
             return
         }
 		if(session.touristAgency) {
-			session.touristAgency.mapWizard.put("trip",tripInstance)
-			redirect(controller:"country", action:"create")
+			redirect(uri:"/")
 		   }
 		   else
 		   {

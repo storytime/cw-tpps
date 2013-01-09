@@ -6,10 +6,8 @@ class Trip {
 	String decription;
 	String type;
 	String name;
-	Collection countries;
 	
-	static hasMany = [countries:Country]
-	static belongsTo = [fk_vacationPackage:VacationPackage]
+	static belongsTo = [fk_vacationPackage:VacationPackage, fk_countries:Country]
 	
     static constraints = {
 		
@@ -25,4 +23,7 @@ class Trip {
 		type(blank:false,nList:["Air","Water","Ground",]);
 		name(blank:false,size: 0..255);
     }
+	String toString(){
+		"${name}"
+	}
 }

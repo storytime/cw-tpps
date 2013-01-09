@@ -22,4 +22,7 @@ class Charter {
 		classCharter (inList:["1","2","3","4","5"]);
 		price (blank:false, range: 1..10000);
     }
+	String toString() {
+		"№${idNumber}"
+	}
 }

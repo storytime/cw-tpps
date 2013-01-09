@@ -4,7 +4,7 @@ import org.codehaus.groovy.grails.plugins.web.taglib.CountryTagLib;
 import org.springframework.dao.DataIntegrityViolationException
 
 class CountryController {
-
+	def searchVacationPackage 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -35,9 +35,15 @@ class CountryController {
             render(view: "create", model: [countryInstance: countryInstance])
             return
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'country.label', default: 'Country'), countryInstance.id])
-        redirect(action: "show", id: countryInstance.id)
+		if(session.touristAgency){
+			session.touristAgency.mapWizard.put("country", countryInstance)
+			redirect(controller:"trip", action:"create")
+		   }
+		   else
+		   {
+			   flash.message = message(code: 'default.created.message', args: [message(code: 'country.label', default: 'Country'), countryInstance.id])
+			   redirect(action: "show", id: countryInstance.id)
+		   }
     }
 
     def show(Long id) {
@@ -116,6 +122,18 @@ class CountryController {
         }
     }
 	def searchVacationPackage(){
-		[countryName:params.get("country")]
+		searchVacationPackage=new SearchVacationPackage()
+		[vacationPackageList:searchVacationPackage.search(params.get("country"))]
+	}
+	
+	def choose(Long id){
+		def countryInstance = Country.get(id)
+			session.touristAgency.mapWizard.put("country", countryInstance)
+			redirect(controller:"trip", action:"create")
+	}
+	
+	def createWizardCountry(Integer max){
+		params.max = Math.min(max ?: 10, 100)
+		[countryInstanceList: Country.list(params), countryInstanceTotal: Country.count()]
 	}
 }

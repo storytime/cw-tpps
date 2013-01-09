@@ -41,29 +41,29 @@
 	</label>
 	<g:textArea name="name" cols="40" rows="5" maxlength="255" required="" value="${tripInstance?.name}"/>
 </div>
-<g:if test="${session.admin}">
-<div class="fieldcontain ${hasErrors(bean: tripInstance, field: 'countries', 'error')} ">
-	<label for="countries">
-		<g:message code="trip.countries.label" default="Countries" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${tripInstance?.countries?}" var="c">
-    <li><g:link controller="country" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="country" action="create" params="['trip.id': tripInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'country.label', default: 'Country')])}</g:link>
-</li>
-</ul>
-
-</div>
-</g:if>
 <div class="fieldcontain ${hasErrors(bean: tripInstance, field: 'fk_vacationPackage', 'error')} required">
 	<label for="fk_vacationPackage">
-		<g:message code="trip.fk_vacationPackage.label" default="Fkvacation Package" />
+		<g:message code="trip.fk_vacationPackage.label" default="Vacation package" />
 		<span class="required-indicator">*</span>
 	</label>
+	<g:if test="${session.touristAgency!=null}">
 	<g:select id="fk_vacationPackage" name="fk_vacationPackage.id" from="${session.touristAgency.mapWizard.get("vacationPackage")}" optionKey="id" required="" value="${tripInstance?.fk_vacationPackage?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+	<g:select id="fk_vacationPackage" name="fk_vacationPackage.id" from="${cw.VacationPackage.list()}" optionKey="id" required="" value="${tripInstance?.fk_vacationPackage?.id}" class="many-to-one"/>
+	</g:else>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: tripInstance, field: 'fk_countries', 'error')} required">
+	<label for="fk_countries">
+		<g:message code="trip.fk_countries.label" default="Countries" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:if test="${session.touristAgency!=null}">
+	<g:select id="fk_countries" name="fk_countries.id" from="${session.touristAgency.mapWizard.get("country")}" optionKey="id" required="" value="${tripInstance?.fk_countries?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+	<g:select id="fk_countries" name="fk_countries.id" from="${cw.Country.list()}" optionKey="id" required="" value="${tripInstance?.fk_countries?.id}" class="many-to-one"/>
+	</g:else>
 </div>
 

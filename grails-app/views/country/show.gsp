@@ -11,7 +11,6 @@
 		<a href="#show-country" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -41,11 +40,13 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${countryInstance?.fk_trip}">
+				<g:if test="${countryInstance?.trips}">
 				<li class="fieldcontain">
-					<span id="fk_trip-label" class="property-label"><g:message code="country.fk_trip.label" default="Fktrip" /></span>
+					<span id="trips-label" class="property-label"><g:message code="country.trips.label" default="Trips" /></span>
 					
-						<span class="property-value" aria-labelledby="fk_trip-label"><g:link controller="trip" action="show" id="${countryInstance?.fk_trip?.id}">${countryInstance?.fk_trip?.encodeAsHTML()}</g:link></span>
+						<g:each in="${countryInstance.trips}" var="t">
+						<span class="property-value" aria-labelledby="trips-label"><g:link controller="trip" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

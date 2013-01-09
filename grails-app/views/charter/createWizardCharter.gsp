@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	<h2 align="center">	Add wizard vacation package </h2>
-	<h3>Create or choose Charter</h3>
+	<h3>Create or choose charter</h3>
 		<a href="#list-charter" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -34,7 +34,7 @@
 				<g:each in="${charterInstanceList}" status="i" var="charterInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${charterInstance.id}">${fieldValue(bean: charterInstance, field: "startDate")}</g:link></td>
+						<td>${fieldValue(bean: charterInstance, field: "startDate")}</td>
 					
 						<td>${fieldValue(bean: charterInstance, field: "typeCharter")}</td>
 						<td><g:link action="choose" id="${charterInstance.id}">choose</g:link></td>					

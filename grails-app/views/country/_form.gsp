@@ -18,14 +18,6 @@
 	<g:select from="${countryList}" name="name" value="${countryInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'fk_trip', 'error')} required">
-	<label for="fk_trip">
-		<g:message code="country.fk_trip.label" default="Fktrip" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="fk_trip" name="fk_trip.id" from="${session.touristAgency.mapWizard.get("trip")}" optionKey="id" required="" value="${countryInstance?.fk_trip?.id}" class="many-to-one"/>
-</div>
-
 <g:if test="${session.admin}">
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'hotels', 'error')} ">
 	<label for="hotels">
@@ -39,6 +31,23 @@
 </g:each>
 <li class="add">
 <g:link controller="hotel" action="create" params="['country.id': countryInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'hotel.label', default: 'Hotel')])}</g:link>
+</li>
+</ul>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'trips', 'error')} ">
+	<label for="trips">
+		<g:message code="country.trips.label" default="Trips" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${countryInstance?.trips?}" var="t">
+    <li><g:link controller="trip" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="trip" action="create" params="['country.id': countryInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'trip.label', default: 'Trip')])}</g:link>
 </li>
 </ul>
 

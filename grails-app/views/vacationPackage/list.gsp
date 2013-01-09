@@ -31,9 +31,9 @@
 					
 						<g:sortableColumn property="people" title="${message(code: 'vacationPackage.people.label', default: 'People')}" />
 					
-						<th><g:message code="vacationPackage.fk_action.label" default="Fkaction" /></th>
+						<th><g:message code="vacationPackage.fk_action.label" default="Action" /></th>
 					
-						<th><g:message code="vacationPackage.fk_charter.label" default="Fkcharter" /></th>
+						<th><g:message code="vacationPackage.fk_charter.label" default="Charter" /></th>
 					
 					</tr>
 				</thead>

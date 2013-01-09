@@ -50,14 +50,6 @@
 	<g:textArea name="passwdHash" cols="40" rows="5" maxlength="255" required="" value="${adminInstance?.passwdHash}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: adminInstance, field: 'avatar', 'error')} ">
-	<label for="avatar">
-		<g:message code="admin.avatar.label" default="Avatar" />
-		
-	</label>
-	<g:textField name="avatar" value="${adminInstance?.avatar}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: adminInstance, field: 'age', 'error')} required">
 	<label for="age">
 		<g:message code="admin.age.label" default="Age" />

@@ -50,13 +50,6 @@
 	<g:textField name="name" maxlength="25" required="" value="${userInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'avatar', 'error')} ">
-	<label for="avatar">
-		<g:message code="user.avatar.label" default="Avatar" />
-		
-	</label>
-	<g:textField name="avatar" value="${userInstance?.avatar}"/>
-</div>
 <g:if test="${session.admin!=null}" >
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'vacationPackages', 'error')} ">
 	<label for="vacationPackages">

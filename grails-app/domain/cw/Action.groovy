@@ -19,4 +19,8 @@ class Action  {
 		endDate(blank:false, min: new Date().setHours(0));
 		startDate (blank:false, min: new Date().setHours(0));
 	}
+	
+	String toString() {
+		"${discount}%"
+	}
 }

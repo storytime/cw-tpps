@@ -27,7 +27,7 @@ class VacationPackageController {
         }
 		if(session.touristAgency){
 		 session.touristAgency.mapWizard.put("vacationPackage", vacationPackageInstance)
-		 redirect(controller:"trip", action:"create")
+		 redirect(controller:"country", action:"createWizardCountry")
 		}
         else 
 		{
@@ -105,4 +105,5 @@ class VacationPackageController {
             redirect(action: "show", id: id)
         }
     }
+	
 }

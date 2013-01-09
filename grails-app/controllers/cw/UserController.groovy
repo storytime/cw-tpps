@@ -3,7 +3,6 @@ package cw
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
-
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -135,6 +134,34 @@ class UserController {
 	
 	def registration_user (){
 		[userInstance: new User(params)]
+	}
+	
+	def buy(Long id){
+		def vacationPackage = VacationPackage.get(id)
+		[vacationPackageBean:vacationPackage]
+	}
+	
+	def sendMail(){
+		
+		String visa=params.get("visa")
+		def ms =new MailSenderService()
+        String ident=params.get("BuyVacationPackage")
+    	def vacationPackage = VacationPackage.get(ident.toLong())
+		print vacationPackage.priceFull
+		String subject="You buy vacation package" 
+		String body = 	"Print this ID=${visa} and show the landing of transport. You vacation package:Price: ${vacationPackage.priceFull}; start date: ${vacationPackage.startDate}; people: ${vacationPackage.people}"
+		ms.sendMail(session.user.email, subject, body)
+		
+		User user = session.user
+		if(!user.isAttached()){
+			user.attach()
+		}
+		user.vacationPackages.add(vacationPackage)
+			if (!user.save(flush: true)) {
+			render("Fail save user but message send you")
+		return
+		}
+	 redirect (uri:"/")
 	}
 	
 }

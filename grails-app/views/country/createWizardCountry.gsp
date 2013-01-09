@@ -8,14 +8,16 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
+	<g:if test="${session.touristAgency!=null}">
+	<h2 align="center">	Add wizard vacation package </h2>
+	<h3>Create or choose country</h3>
+	</g:if>
 		<a href="#list-country" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<g:if test="${session.admin!=null}">
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		</g:if>
 		<div id="list-country" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -34,14 +36,14 @@
 				<tbody>
 				<g:each in="${countryInstanceList}" status="i" var="countryInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<g:if test="${session.admin!=null}">
+						<g:if test="${session.touristAgency==null}">
 						<td><g:link action="show" id="${countryInstance.id}">${fieldValue(bean: countryInstance, field: "wikiLink")}</g:link></td>
 						</g:if>
-						<g:else>
 						<td>${fieldValue(bean: countryInstance, field: "wikiLink")}</td>
-						</g:else>
 						<td>${fieldValue(bean: countryInstance, field: "name")}</td>
-
+						<g:if test="${session.touristAgency!=null}">
+						<td><g:link action="choose" id="${countryInstance.id}">choose</g:link></td>
+						</g:if>
 					</tr>
 				</g:each>
 				</tbody>
