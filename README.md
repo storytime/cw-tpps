@@ -1,19 +1,15 @@
-Coursewok
-==========================================
-Coursework
+### Description
 
 
 
+#### Run app
 
-Git
-===========================================
-1. git reset --hard HEAD 
-2. git rebase -i HEAD~X 
-3. git reset --hard HEAD^ 
-4. tag -a 0.0.1
-5. git push --tags
-6. git tag -d 1 0.0.1  or  git push origin :refs/tags/12345
+In Grails conslove just type:
 
-HTTPS
-===========================================
-http://ldaley.com/post/5235616821/always-developing-grails-apps-with-https-and-testing
+       run-app
+
+
+#### HTTPS
+
+[How to enable https](http://ldaley.com/post/5235616821/always-developing-grails-apps-with-https-and-testing).
+
