@@ -15,9 +15,9 @@ In Grails (v2.11) console just type:
 
 ###### Screenshot
 
-<a href="http://i1343.photobucket.com/albums/o781/k1esk/tp_zps04e6a3c2.png~original" target="_blank"><img src="http://i1343.photobucket.com/albums/o781/k1esk/tp_zps04e6a3c2.png" border="0" alt=" photo tp_zps04e6a3c2.png"/></a>
+<a href="http://i.imgur.com/UBpMM8F.png"><img src="http://i.imgur.com/UBpMM8F.png" title="Click me"/></a>
 
-<a href="http://i1343.photobucket.com/albums/o781/k1esk/tw-2_zps8a405829.png~original" target="_blank"><img src="http://i1343.photobucket.com/albums/o781/k1esk/tw-2_zps8a405829.png" border="0" alt=" photo tw-2_zps8a405829.png"/></a>
+<a href="http://i.imgur.com/OsSCbpR.png"><img src="http://i.imgur.com/OsSCbpR.png" title="Click me"/></a>
 
 
 
